@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<style>
+    .person {
+        display: inline-block;
+        width: 220px;
+        height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        margin: 10px;
+        padding: 20px 20px 40px 20px;
+        overflow: hidden;
+    }
+    .title{
+        color: #36454f;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .paragraph{
+        color: #555555;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .img{
+        width: 100%;
+        height: 85%;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+</style>
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+
+const Cards = ({name, release, photo}) => {
+    return (
+        <div className="person">
+            <img className="img" src={photo} alt={'Photo of ' + name} />
+            <h2 className="title">{name}</h2>
+            <p className="paragraph">{release}</p>
+            <a></a>
+        </div>
+    );
+
+};
+const films = (
+    <div>
+        <Cards name="Game of Throns" release="2011 - 2019" photo="https://lh5.googleusercontent.com/proxy/3Ur07RhzGXMedD1TFOZGBUiXGpf9NaH3W8tZWBJAvHqWuu-9Xzfp_hthoIGHp17fM0C-JRxuCNqk6c38kKBsRfsW-m90CsQFhjIw9kX5do3oQanjHH6TIXhAf5VuFL_S9t4uHyPxWawRWYxHGXHP6pRyCRX0wTBOdqGLVmmQ8tEIxfEKiWFKRhq3mdn_sUU"/>
+        <Cards name="Vikings" release="2013 - 2020" photo="https://avatars.mds.yandex.net/get-kinopoisk-image/1599028/53e53a08-3f1d-4169-a987-e00c25cd1622/600x900"/>
+        <Cards name="Breaking bad" release="2008 - 2013" photo="https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/breaking_bad_4.png"/>
+    </div>
+);
+
+ReactDOM.render(films, document.getElementById("app"));
+</script>
+</body>
+</html>
