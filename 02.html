@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="root"></div>
 
+<script type="text/babel">
+    const Header = ({logo, home, services, continents, contact, privacy}) => {
+        return (
+            <header className="header">
+                <div className="container header-container">
+                    <a href="#" className="logo">{logo}</a>
+                    <nav className="navigation">
+                        <ul>
+                            <li><a href="#">{home}</a></li>
+                            <li><a href="#">{services}</a></li>
+                            <li><a href="#">{continents}</a></li>
+                            <li><a href="#">{contact}</a></li>
+                            <li><a href="#">{privacy}</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        );
+    };
+
+    const head = (
+        <Header
+            logo="Travelulu"
+            home="Home"
+            services="Services"
+            continents="Continents"
+            contact="Contact"
+            privacy="Privacy"
+        />
+    );
+
+    ReactDOM.render(head, document.getElementById("root"));
+</script>
 </body>
 </html>
