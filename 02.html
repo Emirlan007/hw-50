@@ -9,40 +9,96 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="root"></div>
+<div id="app"></div>
 
 <script type="text/babel">
-    const Header = ({logo, home, services, continents, contact, privacy}) => {
+    const Header = ({logo, ticket, number}) => {
         return (
             <header className="header">
                 <div className="container header-container">
                     <a href="#" className="logo">{logo}</a>
-                    <nav className="navigation">
-                        <ul>
-                            <li><a href="#">{home}</a></li>
-                            <li><a href="#">{services}</a></li>
-                            <li><a href="#">{continents}</a></li>
-                            <li><a href="#">{contact}</a></li>
-                            <li><a href="#">{privacy}</a></li>
-                        </ul>
-                    </nav>
+                    <div>
+                        <a href="#" className="buy">{ticket}</a>
+                        <button className="call">{number}</button>
+                    </div>
                 </div>
             </header>
         );
     };
 
+    const Sidebar = ({home, services, continents, contact, privacy, about, blog, support}) => {
+        return (
+            <nav className="navigation">
+                <ul>
+                    <li><a href="#">{home}</a></li>
+                    <li><a href="#">{services}</a></li>
+                    <li><a href="#">{continents}</a></li>
+                    <li><a href="#">{contact}</a></li>
+                    <li><a href="#">{privacy}</a></li>
+                    <li><a href="#">{about}</a></li>
+                    <li><a href="#">{blog}</a></li>
+                    <li><a href="#">{support}</a></li>
+                </ul>
+            </nav>
+        );
+    };
+
+    const Main = ({mainTitle, mainText, beginPlans, reviewPlans}) => {
+        return (
+            <main className="main">
+                <h1 className="main-title">{mainTitle}</h1>
+                <p className="main-text">{mainText}</p>
+                <a className="plans begin" href="#">{beginPlans}</a>
+                <a className="plans" href="#">{reviewPlans}</a>
+            </main>
+        );
+    };
+
+    const Section = ({title, сonnect}) => {
+        return (
+            <div className="container">
+                <div className="infosection">
+                    <h2>{title}</h2>
+                    <div className="contact-link">
+                        <a href="#">{сonnect}</a>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    const Footer = ({email, address, copyright}) => {
+        return (
+            <div className="container">
+                <div className="footer">
+                    <div className="site-footer">
+                        <a href="#">{email}</a>
+                    </div>
+                    <div className="footer-info">
+                        <p className="adress">{address}</p>
+                        <p className="copyrightnotice">{copyright}</p>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
     const head = (
-        <Header
-            logo="Travelulu"
-            home="Home"
-            services="Services"
-            continents="Continents"
-            contact="Contact"
-            privacy="Privacy"
-        />
+        <div>
+            <Header logo="Travelulu" ticket="Buy Ticket" number="Call Us"/>
+            <Sidebar home="Home" services="Services" continents="Continents" contact="Contact"
+                     privacy="Privacy" about="About" blog="Blog" support="Support"/>
+            <Main mainTitle="Plan your next big trip overseas."
+                  mainText="Explore our curated travel guides, budget options, and exciting itineraries to make your dream trip come true."
+                  beginPlans="begin plans" reviewPlans="review plans"/>
+            <Section title="Need more information to get started?"  сonnect="contact us" />
+            <Footer email="travelulu@website.com"  address="22 Street Address, Suburb Address Main City, PO Box Country"
+                    copyright="Copyright 2021, All Rights Reserved"/>
+        </div>
+
     );
 
-    ReactDOM.render(head, document.getElementById("root"));
+    ReactDOM.render(head, document.getElementById("app"));
 </script>
 </body>
 </html>
